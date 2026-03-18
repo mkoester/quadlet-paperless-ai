@@ -1,0 +1,7 @@
+[Unit]
+Description=Paperless AI backup
+
+[Service]
+Type=oneshot
+# Sync the entire data directory (SQLite DB + any auxiliary files)
+ExecStart=/usr/bin/rsync -a --delete %h/data/ /var/backups/paperless-ai/data/
