@@ -30,6 +30,3 @@ HealthRetries=3
 [Service]
 Restart=always
 TimeoutStartSec=900
-
-[Install]
-WantedBy=default.target

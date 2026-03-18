@@ -47,14 +47,14 @@ sudo -u paperless-ai ln -s $REPO/paperless-ai.override.env ~paperless-ai/.config
 # 7. Reload systemd (generates the unit from the .container file)
 sudo -u paperless-ai XDG_RUNTIME_DIR=/run/user/$(id -u paperless-ai) systemctl --user daemon-reload
 
-# 8. Start manually (on demand — do NOT run "enable" if you want manual control)
+# 8. Start manually (on demand)
 sudo -u paperless-ai XDG_RUNTIME_DIR=/run/user/$(id -u paperless-ai) systemctl --user start paperless-ai
 
 # 9. Verify
 sudo -u paperless-ai XDG_RUNTIME_DIR=/run/user/$(id -u paperless-ai) systemctl --user status paperless-ai
 ```
 
-> **On-demand use:** Skip `systemctl --user enable paperless-ai`. Without enabling, the unit will not start automatically on boot — just `start` and `stop` it as needed.
+> **On-demand use:** The `.container` file has no `[Install]` section, so the quadlet generator will not auto-start it at boot. Just `start` and `stop` it as needed.
 
 ## Configuration
 
